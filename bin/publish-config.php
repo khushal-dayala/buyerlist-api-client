@@ -1,7 +1,7 @@
 <?php
 
-$sourceFile = __DIR__ . '/../config/config.php';
-$destinationFile = __DIR__ . '/../config/my-package.php';
+$sourceFile = __DIR__ . '/../config/buyersapi.php';
+$destinationFile = __DIR__ . '/../config/buyersapi.php';
 
 if (!file_exists($destinationFile)) {
     copy($sourceFile, $destinationFile);
