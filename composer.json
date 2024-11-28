@@ -15,9 +15,7 @@
             "BuyerListApiClient\\": "src/"
         }
     },
-    "scripts": {
-    "publish-config": [
-      "php vendor/cakebuyers/config/publish-config.php"
-    ]
-  }
+    "bin": [
+        "publish-config.php"
+      ]
 }
