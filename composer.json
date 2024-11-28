@@ -17,7 +17,7 @@
     },
     "scripts": {
     "publish-config": [
-      "php vendor/cakebuyers/bin/publish-config.php"
+      "php vendor/cakebuyers/BuyerListApiClient/bin/publish-config.php"
     ]
   }
 }
