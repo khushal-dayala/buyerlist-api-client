@@ -14,7 +14,7 @@ class Config
      */
     public function __construct($filePath = null)
     {
-        $rootConfigFolder = __DIR__ . '/../../../../config';
+        $rootConfigFolder = __DIR__ . '/config';
         $defaultConfigFile = $rootConfigFolder . '/buyerlistapi.php';
 
         // Use custom file if provided
