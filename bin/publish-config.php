@@ -1,7 +1,7 @@
 <?php
 
 // Get the source config file inside the package
-$sourceFile = __DIR__ . '/config/buyersapi.php';
+$sourceFile = __DIR__ . '/../config/buyersapi.php'; // Adjusted path
 
 // Determine the project root directory (two levels up from the vendor folder)
 $projectRoot = dirname(__DIR__, 2);
