@@ -16,8 +16,8 @@
         }
     },
     "scripts": {
-    "post-install-cmd": [
-      "php publish-config.php"
+    "publish-config": [
+      "php vendor/cakebuyers/config/publish-config.php"
     ]
   }
 }
