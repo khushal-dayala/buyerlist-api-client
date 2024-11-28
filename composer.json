@@ -17,7 +17,7 @@
     },
     "scripts": {
     "post-install-cmd": [
-      "php bin/publish-config.php"
+      "php publish-config.php"
     ]
   }
 }
