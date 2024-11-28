@@ -4,19 +4,43 @@ namespace BuyerListApiClient;
 
 class Config
 {
-    private $settings;
+    protected $config = [];
 
-    public function __construct($configPath = __DIR__ . '/../config/buyersapi.php')
+    /**
+     * Load the configuration file.
+     *
+     * @param string $filePath Path to the configuration file
+     * @throws \Exception
+     */
+    public function __construct($filePath = null)
     {
-        if (file_exists($configPath)) {
-            $this->settings = include $configPath;
+        if ($filePath && file_exists($filePath)) {
+            $this->config = require $filePath;
+        } elseif (file_exists(__DIR__ . '/../config/buyerlistapi.php')) {
+            $this->config = require __DIR__ . '/../config/buyerlistapi.php';
         } else {
-            throw new \Exception("Config file not found: {$configPath}");
+            throw new \Exception('Configuration file not found.');
         }
     }
 
-    public function get($key, $default = null)
+    /**
+     * Get a configuration value.
+     *
+     * @param string $key
+     * @return mixed|null
+     */
+    public function get($key)
     {
-        return $this->settings[$key] ?? $default;
+        return $this->config[$key] ?? null;
+    }
+
+    /**
+     * Get all configuration.
+     *
+     * @return array
+     */
+    public function all()
+    {
+        return $this->config;
     }
 }
