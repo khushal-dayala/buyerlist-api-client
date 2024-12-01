@@ -4,7 +4,7 @@
 $sourceFile = __DIR__ . '/../config/buyersapi.php'; // Adjusted path
 
 // Determine the project root directory (two levels up from the vendor folder)
-$projectRoot = dirname(__DIR__, 2);
+$projectRoot = dirname(__DIR__, 4);
 
 // Define the target config directory in the project
 $destinationDir = $projectRoot . '/config';
