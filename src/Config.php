@@ -9,34 +9,33 @@ class Config
     /**
      * Constructor to load the configuration file.
      *
-     * @param string|null $filePath Path to the custom configuration file
+     * @param array|string|null $fileOrArray Configuration array or file path
      * @throws \Exception
      */
-    public function __construct($filePath = null)
+    public function __construct($fileOrArray = null)
     {
-        $defaultConfigFile = __DIR__ . '/config/buyerlistapi.php';
-
-        // Use custom file if provided
-        if ($filePath && file_exists($filePath)) {
-            $this->config = require $filePath;
+        // If it's an array, use it as configuration directly
+        if (is_array($fileOrArray)) {
+            $this->config = $fileOrArray;
         }
-        // Use default config file if no custom file is provided
-        elseif (file_exists($defaultConfigFile)) {
-            $this->config = require $defaultConfigFile;
+        // If it's a file path, load the configuration file
+        elseif (is_string($fileOrArray) && file_exists($fileOrArray)) {
+            $this->config = require $fileOrArray;
         } else {
-            throw new \Exception('Configuration file not found.');
+            throw new \Exception('Invalid configuration provided. Provide a valid file path or an array.');
         }
     }
 
     /**
-     * Get a specific configuration value.
+     * Get a specific configuration value or a default.
      *
-     * @param string $key
+     * @param string $key Configuration key
+     * @param mixed|null $default Default value if key does not exist
      * @return mixed|null
      */
-    public function get($key)
+    public function get($key, $default = null)
     {
-        return $this->config[$key] ?? null;
+        return $this->config[$key] ?? $default;
     }
 
     /**
